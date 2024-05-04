@@ -9,6 +9,6 @@ class Article {
   Article.fromJson(Map json)
       : title = json['title'],
         source = json['source']['name'],
-        urlToImage = json['urlToImage'],
+        urlToImage = json['urlToImage'] ?? "",
         url = json['url'];
 }

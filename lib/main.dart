@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'news_api.dart';
 import 'models/article.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  Future<void> _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -37,17 +44,32 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My News',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My News'),
+          title: const Text('My News', style: TextStyle(color: Colors.white)),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
         ),
         body: ListView.builder(
             itemCount: articles.length,
             itemBuilder: (context, index) {
-              return Text(articles[index].title);
+              return ListTile(
+                onTap: () {
+                  _launchUrl(articles[index].url);
+                },
+                title: Text(articles[index].title),
+                subtitle: Text(articles[index].source),
+                leading: Container(
+                  height: 60,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(articles[index].urlToImage),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              );
             }),
       ),
     );
