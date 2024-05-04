@@ -58,7 +58,8 @@ class _MyAppState extends State<MyApp> {
                   _launchUrl(articles[index].url);
                 },
                 title: Text(articles[index].title),
-                subtitle: Text(articles[index].source),
+                subtitle: Text(
+                    '${articles[index].source} - ${articles[index].publishedAt}'),
                 leading: Container(
                   height: 60,
                   width: 100,
