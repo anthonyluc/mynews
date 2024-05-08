@@ -10,10 +10,10 @@ class TabsPage extends StatefulWidget {
 class _TabsPageState extends State<TabsPage> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
-    const NewsPage(category: 'technologie'),
-    const NewsPage(category: 'science'),
-    const NewsPage(category: 'crypto'),
-    const NewsPage(category: 'manga'),
+    const NewsPage(category: 'Technologie'),
+    const NewsPage(category: 'Science'),
+    const NewsPage(category: 'Crypto'),
+    const NewsPage(category: 'Manga'),
   ];
 
   void _onItemTapped(int index) {
