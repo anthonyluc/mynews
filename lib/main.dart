@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/news/news_page.dart';
+import 'pages/tabs/tabs_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My News',
-      home: NewsPage(),
+      home: TabsPage(),
     );
   }
 }
