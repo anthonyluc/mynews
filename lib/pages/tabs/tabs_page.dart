@@ -4,16 +4,16 @@ import '../news/news_page.dart';
 class TabsPage extends StatefulWidget {
   const TabsPage({super.key});
   @override
-  State<TabsPage> createState() => _TabspageState();
+  State<TabsPage> createState() => _TabsPageState();
 }
 
-class _TabspageState extends State<TabsPage> {
+class _TabsPageState extends State<TabsPage> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
-    const NewsPage(),
-    const NewsPage(),
-    const NewsPage(),
-    const NewsPage(),
+    const NewsPage(category: 'technologie'),
+    const NewsPage(category: 'science'),
+    const NewsPage(category: 'crypto'),
+    const NewsPage(category: 'manga'),
   ];
 
   void _onItemTapped(int index) {

@@ -6,7 +6,8 @@ import '../../models/article.dart';
 import 'dart:convert';
 
 class NewsPage extends StatefulWidget {
-  const NewsPage({super.key});
+  final String category;
+  const NewsPage({super.key, required this.category});
 
   @override
   State<NewsPage> createState() => _NewsPageState();
@@ -15,8 +16,8 @@ class NewsPage extends StatefulWidget {
 class _NewsPageState extends State<NewsPage> {
   var articles = <Article>[];
 
-  void _getArticles() {
-    NewsApi.getArticles().then((response) {
+  void _getArticles(category) {
+    NewsApi.getArticles(category).then((response) {
       setState(() {
         Iterable list = json.decode(response.body)['articles'];
         articles = list.map((model) => Article.fromJson(model)).toList();
@@ -33,7 +34,7 @@ class _NewsPageState extends State<NewsPage> {
   @override
   void initState() {
     super.initState();
-    _getArticles();
+    _getArticles(widget.category);
   }
 
   @override
