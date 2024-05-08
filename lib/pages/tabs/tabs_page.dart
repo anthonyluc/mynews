@@ -9,25 +9,50 @@ class TabsPage extends StatefulWidget {
 
 class _TabsPageState extends State<TabsPage> {
   int _selectedIndex = 0;
-  final List<Widget> _widgetOptions = [
-    const NewsPage(category: 'Technologie'),
-    const NewsPage(category: 'Science'),
-    const NewsPage(category: 'Crypto'),
-    const NewsPage(category: 'Manga'),
-  ];
+
+  PageController pageController = PageController(
+    initialPage: 0,
+    keepPage: true,
+  );
+
+  Widget buildPageView() {
+    return PageView(
+      controller: pageController,
+      onPageChanged: (index) {
+        pageChanged(index);
+      },
+      children: const <Widget>[
+        NewsPage(category: 'Technologie'),
+        NewsPage(category: 'Science'),
+        NewsPage(category: 'Crypto'),
+        NewsPage(category: 'Manga'),
+      ],
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void pageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      pageController.animateToPage(index,
+          duration: const Duration(milliseconds: 500), curve: Curves.ease);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: buildPageView(),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.0,
         backgroundColor: Colors.white,
