@@ -17,24 +17,31 @@ const logger = require("firebase-functions/logger"); */
   logger.info("Hello logs!", {structuredData: true});
   response.send("Hello from Firebase!");
 }); */
-
+const newsApiKey = "./api_key.js";
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
 const db = admin.firestore();
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('c7d986faea5b4c9b8e2d65bf812cc792');
-
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI(newsApiKey);
 
 exports.getArticlesFromApi = functions.https.onCall((data, context) => {
+  newsapi.v2.everything({
+    q: "Technologie",
+    language: "fr",
+    sortBy: "publishedAt",
+  }).then((articles) => {
     let count = 0;
-
-    db.collection("Technologies").doc(count.toString()).set({
-        "title":,
-        "url":,
-        "urlToImage":,
-        "source":,
-        "publishedAt":,
+    articles["articles"].forEach((article) => {
+      count++;
+      db.collection("Technologies").doc(count.toString()).limit(5).set({
+        "title": article["title"],
+        "url": article["url"],
+        "urlToImage": article["urlToImage"],
+        "source": article["source"]["name"],
+        "publishedAt": article["publishedAt"],
+      });
     });
+  });
 });
