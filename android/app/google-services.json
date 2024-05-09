@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "667629210280",
+    "project_id": "my-news-4c38d",
+    "storage_bucket": "my-news-4c38d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667629210280:android:b5683368a8a1daacddd09d",
+        "android_client_info": {
+          "package_name": "com.tony.mynews"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVVBRF8bgcv9BnR0z-ka9kVlVvO8sJRWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
