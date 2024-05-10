@@ -63,19 +63,19 @@ class _TabsPageState extends State<TabsPage> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(Icons.camera),
             label: 'Technologie',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.subscriptions),
+            icon: Icon(Icons.dashboard),
             label: 'science',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.monetization_on),
             label: 'crypto',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.book),
             label: 'manga',
           ),
         ],

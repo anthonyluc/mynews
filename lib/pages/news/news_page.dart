@@ -45,6 +45,8 @@ class _NewsPageState extends State<NewsPage> {
         title: widget.category,
       ),
       body: ListView.builder(
+          addAutomaticKeepAlives: false,
+          addRepaintBoundaries: false,
           itemCount: articles.length,
           itemBuilder: (context, index) {
             return ListTile(
