@@ -55,7 +55,7 @@ class _NewsPageState extends State<NewsPage> {
               },
               title: Text(articles[index].title),
               subtitle: Text(
-                  '${articles[index].source} - ${articles[index].publishedAt}'),
+                  '${articles[index].source} - ${DateTime.tryParse(articles[index].publishedAt)}'),
               leading: Container(
                 height: 60,
                 width: 100,
