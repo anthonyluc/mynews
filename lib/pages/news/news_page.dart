@@ -4,6 +4,7 @@ import "../../services/news_api/news_api.dart";
 import 'package:url_launcher/url_launcher.dart';
 import '../../models/article.dart';
 import 'dart:convert';
+import '../../theme/theme.dart';
 
 class NewsPage extends StatefulWidget {
   final String category;
@@ -65,6 +66,7 @@ class _NewsPageState extends State<NewsPage> {
               ),
             );
           }),
+      floatingActionButton: const ThemeButton(),
     );
   }
 }

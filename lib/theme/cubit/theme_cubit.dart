@@ -8,6 +8,7 @@ class ThemeCubit extends Cubit<ThemeData> {
     brightness: Brightness.light,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       foregroundColor: Colors.white,
+      backgroundColor: Colors.blue,
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.blue,
@@ -25,8 +26,7 @@ class ThemeCubit extends Cubit<ThemeData> {
   static final _darkTheme = ThemeData(
     brightness: Brightness.dark,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      foregroundColor: Colors.black,
-    ),
+        foregroundColor: Colors.white, backgroundColor: Colors.black),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.black,
     ),
@@ -39,6 +39,7 @@ class ThemeCubit extends Cubit<ThemeData> {
       selectedItemColor: Colors.amber,
     ),
     //scaffoldBackgroundColor: const Color(0xFF090C22),
+    scaffoldBackgroundColor: Colors.black,
   );
 
   void toggleTheme() {
