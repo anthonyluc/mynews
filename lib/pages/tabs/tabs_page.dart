@@ -55,7 +55,7 @@ class _TabsPageState extends State<TabsPage> {
       body: buildPageView(),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.0,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         unselectedItemColor: const Color(0xffacacac),
         unselectedLabelStyle: const TextStyle(
           color: Color(0xffacacac),
@@ -80,7 +80,7 @@ class _TabsPageState extends State<TabsPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        // selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
     );
